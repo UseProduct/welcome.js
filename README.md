@@ -1,3 +1,7 @@
+![Foyer banner logo](assets/foyer-text-logo.png)
+
+<div style="height:50px"></div>
+
 # Foyer.js
 
 ![Hero](assets/screenshot.png)
