@@ -28,6 +28,13 @@ foyer.init({
 </script>
 ```
 
+## Tasks
+
+- [ ] Add hosted demo page
+- [ ] Add multi-section (groups) support
+- [ ] Add custom event trigger support for section items
+- [ ] Add full options documentation to Readme
+
 ## Contributing & running locally
 
 Looking to develop Foyer for contributing/forking, great! Just run:
