@@ -1,20 +1,36 @@
 {
-    "name": "Foyer",
-    "version": "1.0.0",
-    "description": "A friendly entrance to your site",
-    "main": "foyer.js",
-    "scripts": {
-      "start": "parcel examples/index.html --open",
-      "build": "parcel build examples/index.html"
-    },
-    "dependencies": { "parcel-bundler": "^1.6.1" },
-    "devDependencies": {
-      "@babel/core": "7.2.0",
-      "typescript": "4.4.4"
-    },
-    "resolutions": {
-      "@babel/preset-env": "7.13.8"
-    },
-    "keywords": ["javascript"]
-  }
-  
+  "name": "@hiyaio/foyer",
+  "version": "0.0.1",
+  "description": "A friendly entrance to your site",
+  "main": "foyer.js",
+  "scripts": {
+    "start": "parcel examples/index.html --open",
+    "build": "parcel build examples/index.html"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.6.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "typescript": "4.4.4"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiyaio/foyer.js.git"
+  },
+  "author": "James Broad",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hiyaio/foyer.js/issues"
+  },
+  "homepage": "https://github.com/hiyaio/foyer.js#readme"
+}
