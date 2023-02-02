@@ -32,4 +32,4 @@ Looking to develop Foyer for contributing/forking, great! Just run:
 yarn start
 ```
 
-This should build and run a demo environment for you to test on htt://localhost:1234/.
+This should build and run a demo environment for you to test on http://localhost:1234/.
