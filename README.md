@@ -1,5 +1,7 @@
 # Foyer.js
 
+![Hero](assets/screenshot.png)
+
 A friendly jumping off point for your users to get support. Designed for SaaS products that care about their customer experience.
 
 ## How to get started
