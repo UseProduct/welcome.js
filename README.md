@@ -14,17 +14,17 @@ The most comprehensive examples can be found in [/examples](/examples).
 
 To add Foyer to your site:
 
-```js
+```html
 <script src="https://unpkg.com/@hiyaio/foyer/foyer.js"></script>
 <script>
-foyer.init({
-  sections: [
-    {
-      label: "Help & support",
-      href: "https://github.com/hiyaio/foyer.js/issues",
-    },
-  ]
-})
+  foyer.init({
+    sections: [
+      {
+        label: "Help & support",
+        href: "https://github.com/hiyaio/foyer.js/issues",
+      },
+    ],
+  });
 </script>
 ```
 
