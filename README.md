@@ -56,6 +56,13 @@ const foyerInitOptions = {
       href: "https://example.com/terms",
       isMuted: true,
     },
+    // Custom events
+    {
+      label: "Live chat",
+      onClick: function (event) {
+        console.log("Custom logic");
+      },
+    },
     // Divider
     {
       type: "divider",
@@ -73,14 +80,22 @@ const foyerInitOptions = {
 };
 ```
 
+You can programmatically control the opening & closing of the menu:
+
+```javascript
+foyer.open();
+foyer.close();
+```
+
 ## Tasks
 
 - [x] Add hosted demo page
 - [x] Add dividers
 - [x] Add full options documentation to Readme
-- [ ] Add custom event trigger support for section items
+- [x] Add custom event trigger support for section items
 - [ ] Add tests
 - [ ] ECMAScript module import support
+- [ ] Improve demo page design (add favicon & more instructions)
 
 ## Developing locally
 

@@ -45,6 +45,18 @@
             href: "http://hiya.io/",
           },
           {
+            label: "Chat with us ('interactive')",
+            onClick: function (e) {
+              e.preventDefault();
+              var value = prompt("What's your name?") || "stranger";
+              alert("Hello " + value);
+              foyer.close();
+            },
+          },
+          {
+            type: "divider",
+          },
+          {
             label: "Twitter - @hiyaio",
             href: "https://twitter.com/hiyaio",
             target: "_blank",
