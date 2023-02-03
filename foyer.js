@@ -21,9 +21,11 @@
 
     colors: {
       ctaBackground: "#3b3d4e",
+      ctaHoverBackground: "#777785",
       ctaText: "#fff",
       menuBackground: "#f1f1f1f",
       menuItemHoverBackground: "#f2f2f2",
+      menuItemMutedText: "#91929c",
     },
 
     initColorOptions: function (colorOptions) {
@@ -89,9 +91,8 @@
         z-index: 2;
       }
 
-
       #foyer--cta:hover {
-        filter: brightness(1.3);
+        background-color: ${this.colors.ctaHoverBackground};
       }
       
       #foyer--menu-container {
@@ -116,7 +117,7 @@
         margin: 0;
       }
 
-      .foyer--menu-list a {
+      .foyer--menu-item {
         display: block;
         user-select: none;
         transition: background 100ms ease-in-out;
@@ -128,11 +129,15 @@
         text-decoration: none;
       }
 
-      .foyer--menu-list a:hover,
-      .foyer--menu-list a:focus,
-      .foyer--menu-list a:active
+      .foyer--menu-item:hover,
+      .foyer--menu-item:focus,
+      .foyer--menu-item:active
       {
         background-color: ${this.colors.menuItemHoverBackground};
+      }
+
+      .foyer--menu-item--muted {
+        color: ${this.colors.menuItemMutedText};
       }
 
       .foyer--menu-divider {
@@ -177,9 +182,20 @@
         if (item.type == "divider") {
           listItem.className = "foyer--menu-divider";
         } else {
+          if (!item.label) {
+            console.warn("Foyer: Item label is required");
+            return;
+          }
           var link = document.createElement("a");
+          link.className = "foyer--menu-item";
           link.innerText = item.label;
           link.href = item.href;
+          if (item.target) {
+            link.target = item.target;
+          }
+          if (item.isMuted) {
+            link.classList.add("foyer--menu-item--muted");
+          }
           listItem.appendChild(link);
         }
         foyerListContainer.appendChild(listItem);
