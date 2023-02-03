@@ -1,6 +1,6 @@
 {
   "name": "@hiyaio/foyer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A friendly entrance to your site",
   "main": "foyer.js",
   "scripts": {
