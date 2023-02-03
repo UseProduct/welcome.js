@@ -34,11 +34,36 @@ To add Foyer to your site:
 
 More examples of how you can configure Foyer can be found in [/demo](/demo).
 
+## Configuration
+
+```javascript
+const foyerInitOptions = {
+  items: [
+    // Standard link option
+    {
+      label: "Help & support",
+      href: "https://example.com/help",
+    },
+    // Divider
+    {
+      type: "divider",
+    },
+  ],
+  // Override core colors. CSS can be used but this is simpler
+  colors: {
+    ctaBackground: "#3b3d4e",
+    ctaText: "#fff",
+    menuBackground: "#f1f1f1f",
+    menuItemHoverBackground: "#f2f2f2",
+  },
+};
+```
+
 ## Tasks
 
 - [x] Add hosted demo page
 - [x] Add dividers
-- [ ] Add full options documentation to Readme
+- [x] Add full options documentation to Readme
 - [ ] Add custom event trigger support for section items
 - [ ] ECMAScript module import support
 
