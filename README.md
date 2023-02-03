@@ -107,6 +107,12 @@ yarn start
 
 This should build and run a demo environment for you to test on http://localhost:1234/.
 
+Check everything still works
+
+```
+yarn test
+```
+
 ### Credits
 
 - Logo graphic: [Reception by Tomi Triyana](https://thenounproject.com/icon/reception-3177734/)
