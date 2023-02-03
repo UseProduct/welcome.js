@@ -4,8 +4,8 @@
   "description": "A friendly entrance to your site",
   "main": "foyer.js",
   "scripts": {
-    "start": "parcel examples/index.html --open",
-    "build": "parcel build examples/index.html"
+    "start": "parcel demo/index.html --open",
+    "build": "parcel build demo/index.html"
   },
   "dependencies": {
     "parcel-bundler": "^1.6.1"
@@ -21,7 +21,7 @@
     "javascript"
   ],
   "directories": {
-    "example": "examples"
+    "demo": "demo"
   },
   "repository": {
     "type": "git",

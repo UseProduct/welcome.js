@@ -28,7 +28,7 @@ To add Foyer to your site:
 </script>
 ```
 
-More examples of how you can configure Foyer can be found in [/examples](/examples).
+More examples of how you can configure Foyer can be found in [/demo](/demo).
 
 ## Tasks
 
