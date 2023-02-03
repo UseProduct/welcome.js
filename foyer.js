@@ -94,7 +94,36 @@
       #foyer--cta:hover {
         background-color: ${this.colors.ctaHoverBackground};
       }
-      
+
+      @-webkit-keyframes menu-slide-in {
+        0% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0) scale(0.95);
+        }
+        85% {
+          -webkit-transform: translateY(-5px) scale(1.05);
+                  transform: translateY(-5px) scale(1.01);
+        }
+        100% {
+          -webkit-transform: translateY(-5px) scale(1);
+                  transform: translateY(-5px) scale(1);
+        }
+      }
+      @keyframes menu-slide-in {
+        0% {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0) scale(0.95);
+        }
+        85% {
+          -webkit-transform: translateY(-5px) scale(1.05);
+                  transform: translateY(-5px) scale(1.01);
+        }
+        100% {
+          -webkit-transform: translateY(-5px) scale(1);
+                  transform: translateY(-5px) scale(1);
+        }
+      }
+
       #foyer--menu-container {
         position: absolute;
         bottom: 50px;
@@ -105,6 +134,8 @@
         box-shadow: rgb(15 15 15 / 5%) 0px 0px 0px 1px, rgb(15 15 15 / 10%) 0px 3px 6px, rgb(15 15 15 / 20%) 0px 9px 24px;
         width: 250px;
         z-index: 2;
+        transform-origin: bottom right;
+        animation: menu-slide-in 90ms cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
       }
 
       .foyer--hidden {
