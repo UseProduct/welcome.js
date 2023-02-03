@@ -10,6 +10,10 @@ Foyer has been designed for [Hiya](https://hiya.io) to improve the logged-in cus
 
 ![Hero](assets/screenshot.png)
 
+## Foyer in action
+
+Here's a demo: [foyer.hiya.io](https://foyer.hiya.io/)
+
 ## Add Foyer to your site
 
 To add Foyer to your site:
