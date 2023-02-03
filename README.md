@@ -12,7 +12,7 @@ Foyer has been designed for [Hiya](https://hiya.io) to improve the logged-in cus
 
 ## Foyer in action
 
-Here's a demo: [foyer.hiya.io](https://foyer.hiya.io/)
+Here's a demo: **[foyer.hiya.io](https://foyer.hiya.io/)**
 
 ## Add Foyer to your site
 
