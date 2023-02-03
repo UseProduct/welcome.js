@@ -36,7 +36,7 @@ More examples of how you can configure Foyer can be found in [/demo](/demo).
 
 ## Tasks
 
-- [ ] Add hosted demo page
+- [x] Add hosted demo page
 - [ ] Add multi-section (groups) support
 - [ ] Add custom event trigger support for section items
 - [ ] Add full options documentation to Readme
