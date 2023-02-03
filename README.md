@@ -93,7 +93,7 @@ foyer.close();
 - [x] Add dividers
 - [x] Add full options documentation to Readme
 - [x] Add custom event trigger support for section items
-- [ ] Add tests
+- [x] Add tests
 - [ ] ECMAScript module import support
 - [ ] Improve demo page design (add favicon & more instructions)
 
