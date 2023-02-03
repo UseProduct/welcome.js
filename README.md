@@ -80,7 +80,7 @@ const foyerInitOptions = {
 };
 ```
 
-You can programatically control the opening & closing with:
+You can programmatically control the opening & closing of the menu:
 
 ```javascript
 foyer.open();
