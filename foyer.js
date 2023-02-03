@@ -28,7 +28,7 @@
       menuItemMutedText: "#91929c",
     },
 
-    initColorOptions: function (colorOptions) {
+    _initColorOptions: function (colorOptions) {
       if (!colorOptions || typeof colorOptions !== "object") {
         return;
       }
@@ -45,7 +45,7 @@
       });
     },
 
-    createStyles: function () {
+    _createStyles: function () {
       var engageStyles = document.createElement("style");
       engageStyles.textContent = `
       #foyer--root {
@@ -149,27 +149,27 @@
       document.head.appendChild(engageStyles);
     },
 
-    createRootEl: function () {
+    _createRootEl: function () {
       var foyerRoot = document.createElement("div");
       foyerRoot.id = "foyer--root";
       return foyerRoot;
     },
 
-    createBackdropEl: function () {
+    _createBackdropEl: function () {
       var foyerBackdrop = document.createElement("div");
       foyerBackdrop.id = "foyer--backdrop";
       foyerBackdrop.className = "foyer--hidden";
       return foyerBackdrop;
     },
 
-    createCTAEl: function () {
+    _createCTAEl: function () {
       var foyerButton = document.createElement("button");
       foyerButton.id = "foyer--cta";
       foyerButton.innerHTML = `?`;
       return foyerButton;
     },
 
-    createMenuEl: function () {
+    _createMenuEl: function () {
       var foyerMenu = document.createElement("div");
       var items = this.options.items || [];
       foyerMenu.id = "foyer--menu-container";
@@ -190,12 +190,19 @@
           link.className = "foyer--menu-item";
           link.innerText = item.label;
           link.href = item.href;
+
           if (item.target) {
             link.target = item.target;
           }
+
           if (item.isMuted) {
             link.classList.add("foyer--menu-item--muted");
           }
+
+          if (item.onClick && typeof item.onClick === "function") {
+            link.addEventListener("click", item.onClick);
+          }
+
           listItem.appendChild(link);
         }
         foyerListContainer.appendChild(listItem);
@@ -205,20 +212,32 @@
       return foyerMenu;
     },
 
-    handleToggleMenu: () => {
-      this.isOpen = !this.isOpen;
+    _setIsOpenState: function (isOpen) {
+      this.isOpen = isOpen;
       var $foyerBackdrop = document.getElementById("foyer--backdrop");
       var $foyerMenu = document.getElementById("foyer--menu-container");
-      $foyerMenu.classList.toggle("foyer--hidden");
-      $foyerBackdrop.classList.toggle("foyer--hidden");
+      if (isOpen) {
+        $foyerMenu.classList.remove("foyer--hidden");
+        $foyerBackdrop.classList.remove("foyer--hidden");
+      } else {
+        $foyerMenu.classList.add("foyer--hidden");
+        $foyerBackdrop.classList.add("foyer--hidden");
+      }
     },
 
-    initEventListeners: function () {
+    _handleToggleMenu: function () {
+      this._setIsOpenState(!this.isOpen);
+    },
+
+    _initEventListeners: function () {
       var $foyerCTA = document.getElementById("foyer--cta");
       var $foyerBackdrop = document.getElementById("foyer--backdrop");
 
-      $foyerBackdrop.addEventListener("click", this.handleToggleMenu);
-      $foyerCTA.addEventListener("click", this.handleToggleMenu);
+      $foyerBackdrop.addEventListener(
+        "click",
+        this._handleToggleMenu.bind(this)
+      );
+      $foyerCTA.addEventListener("click", this._handleToggleMenu.bind(this));
 
       // If escape key is pressed, close the menu
       document.addEventListener("keydown", (evt) => {
@@ -233,27 +252,33 @@
           isEscape = evt.keyCode === 27;
         }
         if (isEscape) {
-          this.handleToggleMenu();
+          this._handleToggleMenu();
         }
       });
     },
 
+    close: function () {
+      this._setIsOpenState(false);
+    },
+    open: function () {
+      this._setIsOpenState(true);
+    },
     init: function (options) {
       this.options = options;
 
       // Init DOM elements
-      this.initColorOptions(options.colors);
-      this.createStyles();
-      var $foyerRoot = this.createRootEl();
-      var $foyerButton = this.createCTAEl();
-      var $foyerMenu = this.createMenuEl();
-      var $foyerBackdropEl = this.createBackdropEl();
+      this._initColorOptions(options.colors);
+      this._createStyles();
+      var $foyerRoot = this._createRootEl();
+      var $foyerButton = this._createCTAEl();
+      var $foyerMenu = this._createMenuEl();
+      var $foyerBackdropEl = this._createBackdropEl();
       $foyerRoot.appendChild($foyerButton);
       $foyerRoot.appendChild($foyerMenu);
       $foyerRoot.appendChild($foyerBackdropEl);
       document.body.appendChild($foyerRoot);
 
-      this.initEventListeners();
+      this._initEventListeners();
     },
   };
 
