@@ -44,6 +44,18 @@ const foyerInitOptions = {
       label: "Help & support",
       href: "https://example.com/help",
     },
+    // Open in new tab/window
+    {
+      label: "Contact us",
+      href: "https://external.example.com/",
+      target: "_blank",
+    },
+    // Subtle, muted styling
+    {
+      label: "Terms and conditions",
+      href: "https://example.com/terms",
+      isMuted: true,
+    },
     // Divider
     {
       type: "divider",
@@ -52,9 +64,11 @@ const foyerInitOptions = {
   // Override core colors. CSS can be used but this is simpler
   colors: {
     ctaBackground: "#3b3d4e",
+    ctaHoverBackground: "#777785",
     ctaText: "#fff",
     menuBackground: "#f1f1f1f",
     menuItemHoverBackground: "#f2f2f2",
+    menuItemMutedText: "#91929c",
   },
 };
 ```
@@ -65,6 +79,7 @@ const foyerInitOptions = {
 - [x] Add dividers
 - [x] Add full options documentation to Readme
 - [ ] Add custom event trigger support for section items
+- [ ] Add tests
 - [ ] ECMAScript module import support
 
 ## Developing locally
