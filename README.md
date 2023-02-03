@@ -22,7 +22,7 @@ To add Foyer to your site:
 <script src="https://unpkg.com/@hiyaio/foyer/foyer.js"></script>
 <script>
   foyer.init({
-    sections: [
+    items: [
       {
         label: "Help & support",
         href: "https://github.com/hiyaio/foyer.js/issues",
@@ -37,9 +37,9 @@ More examples of how you can configure Foyer can be found in [/demo](/demo).
 ## Tasks
 
 - [x] Add hosted demo page
-- [ ] Add multi-section (groups) support
-- [ ] Add custom event trigger support for section items
+- [x] Add dividers
 - [ ] Add full options documentation to Readme
+- [ ] Add custom event trigger support for section items
 - [ ] ECMAScript module import support
 
 ## Developing locally

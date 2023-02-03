@@ -12,7 +12,7 @@
   var foyer = {
     // default options
     options: {
-      sections: [],
+      items: [],
       colors: {},
     },
 
@@ -134,6 +134,12 @@
       {
         background-color: ${this.colors.menuItemHoverBackground};
       }
+
+      .foyer--menu-divider {
+        border-top: 1px solid #EBEBEB;
+        margin: 5px -5px;
+        height: 0;
+      }
       `;
       document.head.appendChild(engageStyles);
     },
@@ -160,18 +166,22 @@
 
     createMenuEl: function () {
       var foyerMenu = document.createElement("div");
-      var sections = this.options.sections || [];
+      var items = this.options.items || [];
       foyerMenu.id = "foyer--menu-container";
       foyerMenu.className = "foyer--hidden";
 
       var foyerListContainer = document.createElement("ul");
       foyerListContainer.className = "foyer--menu-list";
-      sections.forEach((section) => {
+      items.forEach((item) => {
         var listItem = document.createElement("li");
-        var link = document.createElement("a");
-        link.innerText = section.label;
-        link.href = section.href;
-        listItem.appendChild(link);
+        if (item.type == "divider") {
+          listItem.className = "foyer--menu-divider";
+        } else {
+          var link = document.createElement("a");
+          link.innerText = item.label;
+          link.href = item.href;
+          listItem.appendChild(link);
+        }
         foyerListContainer.appendChild(listItem);
       });
 
