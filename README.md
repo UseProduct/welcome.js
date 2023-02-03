@@ -36,6 +36,7 @@ More examples of how you can configure Foyer can be found in [/examples](/exampl
 - [ ] Add multi-section (groups) support
 - [ ] Add custom event trigger support for section items
 - [ ] Add full options documentation to Readme
+- [ ] ECMAScript module import support
 
 ## Developing locally
 
