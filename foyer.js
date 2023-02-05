@@ -23,7 +23,7 @@
       ctaBackground: "#3b3d4e",
       ctaHoverBackground: "#777785",
       ctaText: "#fff",
-      menuBackground: "#f1f1f1f",
+      menuBackground: "#fff",
       menuItemHoverBackground: "#f2f2f2",
       menuItemMutedText: "#91929c",
     },
