@@ -3,6 +3,31 @@
     <title>Foyer demo</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="images/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
     <style>
       body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -17,16 +42,44 @@
         height: 100vh;
       }
 
+      .center-content {
+        text-align: center;
+      }
+
       h1 {
         font-size: 1.3rem;
         letter-spacing: 0.02rem;
         color: #111;
       }
+
+      img {
+        max-width: 90%;
+      }
+
+      .link-container {
+        margin-top: 2rem;
+        border: 6px double #d0a979;
+        padding: 1rem;
+      }
+
+      .link-container a {
+        text-decoration: none;
+        color: #997256;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.15rem;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="center-of-page">
-      <h1>Foyer demo with basic config</h1>
+      <div class="center-content">
+        <img src="images/foyer-illustration.svg" width="400" />
+        <div class="link-container">
+          <a href="https://github.com/hiyaio/foyer.js/">GitHub Docs</a>
+        </div>
+      </div>
     </div>
 
     <script src="../foyer.js"></script>
