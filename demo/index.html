@@ -42,16 +42,44 @@
         height: 100vh;
       }
 
+      .center-content {
+        text-align: center;
+      }
+
       h1 {
         font-size: 1.3rem;
         letter-spacing: 0.02rem;
         color: #111;
       }
+
+      img {
+        max-width: 90%;
+      }
+
+      .link-container {
+        margin-top: 2rem;
+        border: 6px double #d0a979;
+        padding: 1rem;
+      }
+
+      .link-container a {
+        text-decoration: none;
+        color: #997256;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.15rem;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="center-of-page">
-      <h1>Foyer demo</h1>
+      <div class="center-content">
+        <img src="images/foyer-illustration.svg" width="400" />
+        <div class="link-container">
+          <a href="https://github.com/hiyaio/foyer.js/">GitHub Docs</a>
+        </div>
+      </div>
     </div>
 
     <script src="../foyer.js"></script>
