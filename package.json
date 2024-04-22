@@ -1,8 +1,8 @@
 {
-  "name": "@UseProduct/welcome",
-  "version": "0.0.8",
+  "name": "@UseProduct/welcome.js",
+  "version": "0.0.9",
   "description": "A friendly entrance to your site",
-  "main": "foyer.js",
+  "main": "welcome.js",
   "scripts": {
     "start": "parcel demo/index.html --open",
     "build": "parcel build demo/index.html",

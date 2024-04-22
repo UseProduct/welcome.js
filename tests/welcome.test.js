@@ -23,7 +23,7 @@ describe("welcome", () => {
     return style.display !== "none";
   }
 
-  function injectBaseFoyerInitScript(options) {
+  function injectBaseWelcomeInitScript(options) {
     if (!options) {
       options = {
         items: [
@@ -43,19 +43,19 @@ describe("welcome", () => {
   }
 
   test("Will render CTA", () => {
-    injectBaseFoyerInitScript();
+    injectBaseWelcomeInitScript();
     expect(document.getElementById("welcome--cta").textContent).toBe("?");
   });
 
   test("Menu not shown by default", () => {
-    injectBaseFoyerInitScript();
+    injectBaseWelcomeInitScript();
     const $menu = document.getElementById("welcome--menu-container");
     expect($menu.classList).toContain("welcome--hidden");
     expect(isElementVisible($menu)).toBeFalsy();
   });
 
   test("Menu shown when CTA clicked", () => {
-    injectBaseFoyerInitScript();
+    injectBaseWelcomeInitScript();
 
     document.getElementById("welcome--cta").click();
 
@@ -65,7 +65,7 @@ describe("welcome", () => {
   });
 
   test("Menu contains a list of links", () => {
-    injectBaseFoyerInitScript({
+    injectBaseWelcomeInitScript({
       items: [
         {
           label: "Item 1",
@@ -87,7 +87,7 @@ describe("welcome", () => {
   });
 
   test("Menu contains a divider", () => {
-    injectBaseFoyerInitScript({
+    injectBaseWelcomeInitScript({
       items: [
         {
           type: "divider",

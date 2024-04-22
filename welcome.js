@@ -38,7 +38,7 @@
         if (!this.colors[key]) {
           var validColors = Object.keys(this.colors).join(", ");
           console.warn(
-            `Foyer: ${key} is not a valid color option. Choose one of: ${validColors}`
+            `Welcome.js: ${key} is not a valid color option. Choose one of: ${validColors}`
           );
         }
         this.colors[key] = value;
@@ -214,7 +214,7 @@
           listItem.className = "welcome--menu-divider";
         } else {
           if (!item.label) {
-            console.warn("Foyer: Item label is required");
+            console.warn("Welcome.js: Item label is required");
             return;
           }
           var link = document.createElement("a");
