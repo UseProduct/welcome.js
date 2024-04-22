@@ -19,7 +19,7 @@ Here's a demo: **[welcome.useproduct.com](https://welcome.useproduct.com/)**
 To add Welcome to your site:
 
 ```html
-<script src="https://unpkg.com/@useproduct/welcome/welcome.js"></script>
+<script src="https://unpkg.com/@useproduct/welcome.js/welcome.js"></script>
 <script>
   welcome.init({
     items: [

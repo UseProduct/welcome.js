@@ -1,6 +1,6 @@
 {
-  "name": "@UseProduct/welcome.js",
-  "version": "0.0.9",
+  "name": "@useproduct/welcome.js",
+  "version": "0.0.10",
   "description": "A friendly entrance to your site",
   "main": "welcome.js",
   "scripts": {
