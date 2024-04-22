@@ -77,6 +77,11 @@ const welcomeInitOptions = {
     menuItemHoverBackground: "#f2f2f2",
     menuItemMutedText: "#91929c",
   },
+
+  // Custom target element. Uses QuerySelector to find the element.
+  // Note if the target element is not found (async timing related), the menu will be appended to the body.
+  // If you want control over the positioning of the button, add a `position: relative` to the target element.
+  targetEl: "body",
 };
 ```
 

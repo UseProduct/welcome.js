@@ -4,7 +4,7 @@
   "description": "A friendly entrance to your site",
   "main": "welcome.js",
   "scripts": {
-    "start": "parcel demo/index.html --open",
+    "start": "parcel demo/*.html",
     "build": "parcel build demo/index.html",
     "test": "jest"
   },

@@ -14,6 +14,7 @@
     options: {
       items: [],
       colors: {},
+      targetEl: "body",
     },
 
     // State of menu open or closed
@@ -48,14 +49,18 @@
     _createStyles: function () {
       var engageStyles = document.createElement("style");
       engageStyles.textContent = `
+      
       #welcome--root {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
         z-index: 9999;
         font-family: sans-serif;
         font-size: 1rem;
         --primary: #3b3d4e;
+      }
+
+      .welcome--root--page-bottom {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
       }
 
       #welcome--root,
@@ -136,6 +141,7 @@
         z-index: 2;
         transform-origin: bottom right;
         animation: menu-slide-in 90ms cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+        text-align: left;
       }
 
       .welcome--hidden {
@@ -155,7 +161,7 @@
         cursor: pointer;
         padding: 10px 10px;
         border-radius: 3px;
-
+        text-align: left;
         color: var(--primary);
         text-decoration: none;
       }
@@ -165,6 +171,7 @@
       .welcome--menu-item:active
       {
         background-color: ${this.colors.menuItemHoverBackground};
+        text-decoration: none;
       }
 
       .welcome--menu-item--muted {
@@ -318,7 +325,14 @@
       $welcomeRoot.appendChild($welcomeButton);
       $welcomeRoot.appendChild($welcomeMenu);
       $welcomeRoot.appendChild($welcomeBackdropEl);
-      document.body.appendChild($welcomeRoot);
+
+      if (options.targetEl && document.querySelector(options.targetEl)) {
+        var targetEl = document.querySelector(options.targetEl);
+        targetEl.appendChild($welcomeRoot);
+      } else {
+        $welcomeRoot.classList.add("welcome--root--page-bottom");
+        document.body.appendChild($welcomeRoot);
+      }
 
       this._initEventListeners();
     },
