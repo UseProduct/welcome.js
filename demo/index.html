@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Foyer demo</title>
+    <title>Welcome demo</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -94,30 +94,30 @@
   <body>
     <div class="center-of-page">
       <div class="center-content">
-        <img src="images/foyer-illustration.svg" width="400" />
+        <img src="images/welcome-illustration.svg" width="400" />
 
         <div class="strapline">The art of supporting users</div>
 
         <div class="link-container">
-          <a href="https://github.com/hiyaio/foyer.js/">GitHub Docs</a>
+          <a href="https://github.com/useproduct/welcome.js/">GitHub Docs</a>
         </div>
       </div>
     </div>
 
-    <script src="../foyer.js"></script>
+    <script src="../welcome.js"></script>
     <script>
-      foyer.init({
+      welcome.init({
         items: [
           {
             label: "Help & support",
-            href: "https://github.com/hiyaio/foyer.js/issues",
+            href: "https://github.com/useproduct/welcome.js/issues",
           },
           {
             type: "divider",
           },
           {
             label: "Contact us",
-            href: "http://hiya.io/",
+            href: "http://www.useproduct.com/",
           },
           {
             label: "Chat with us ('interactive')",
@@ -125,15 +125,15 @@
               e.preventDefault();
               var value = prompt("What's your name?") || "stranger";
               alert("Hello " + value);
-              foyer.close();
+              welcome.close();
             },
           },
           {
             type: "divider",
           },
           {
-            label: "Twitter - @hiyaio",
-            href: "https://twitter.com/hiyaio",
+            label: "Twitter - @useproduct",
+            href: "https://twitter.com/useproduct",
             target: "_blank",
             isMuted: true,
           },

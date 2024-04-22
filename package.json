@@ -1,5 +1,5 @@
 {
-  "name": "@hiyaio/foyer",
+  "name": "@UseProduct/welcome",
   "version": "0.0.8",
   "description": "A friendly entrance to your site",
   "main": "foyer.js",
@@ -29,14 +29,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hiyaio/foyer.js.git"
+    "url": "git+https://github.com/useproduct/welcome.js.git"
   },
   "author": "James Broad",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hiyaio/foyer.js/issues"
+    "url": "https://github.com/useproduct/welcome.js/issues"
   },
-  "homepage": "https://github.com/hiyaio/foyer.js#readme",
+  "homepage": "https://github.com/useproduct/welcome.js#readme",
   "jest": {
     "testEnvironment": "jsdom"
   }

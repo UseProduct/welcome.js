@@ -1,6 +1,6 @@
 /* /////////////////////////////////////////////////////////
 //
-// Welcome to the foyer!
+// A warm welcome!
 //
 // Here you'll find some tasty vanilla JS
 // This avoids too much dependency bloat, keeps things simple
@@ -9,7 +9,7 @@
 /* ///////////////////////////////////////////////////////*/
 
 (function () {
-  var foyer = {
+  var welcome = {
     // default options
     options: {
       items: [],
@@ -48,7 +48,7 @@
     _createStyles: function () {
       var engageStyles = document.createElement("style");
       engageStyles.textContent = `
-      #foyer--root {
+      #welcome--root {
         position: fixed;
         bottom: 10px;
         right: 10px;
@@ -58,12 +58,12 @@
         --primary: #3b3d4e;
       }
 
-      #foyer--root,
-      #foyer--root * {
+      #welcome--root,
+      #welcome--root * {
         box-sizing: border-box;
       }
 
-      #foyer--backdrop {
+      #welcome--backdrop {
         position: fixed;
         top: 0;
         left: 0;
@@ -71,7 +71,7 @@
         bottom: 0;
       }
       
-      #foyer--cta {
+      #welcome--cta {
         background-color: ${this.colors.ctaBackground};
         border: none;
         color: ${this.colors.ctaText};
@@ -91,7 +91,7 @@
         z-index: 2;
       }
 
-      #foyer--cta:hover {
+      #welcome--cta:hover {
         background-color: ${this.colors.ctaHoverBackground};
       }
 
@@ -124,7 +124,7 @@
         }
       }
 
-      #foyer--menu-container {
+      #welcome--menu-container {
         position: absolute;
         bottom: 50px;
         right: 0;
@@ -138,17 +138,17 @@
         animation: menu-slide-in 90ms cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
       }
 
-      .foyer--hidden {
+      .welcome--hidden {
         display: none;
       }
 
-      .foyer--menu-list {
+      .welcome--menu-list {
         list-style: none;
         padding: 5px;
         margin: 0;
       }
 
-      .foyer--menu-item {
+      .welcome--menu-item {
         display: block;
         user-select: none;
         transition: background 100ms ease-in-out;
@@ -160,18 +160,18 @@
         text-decoration: none;
       }
 
-      .foyer--menu-item:hover,
-      .foyer--menu-item:focus,
-      .foyer--menu-item:active
+      .welcome--menu-item:hover,
+      .welcome--menu-item:focus,
+      .welcome--menu-item:active
       {
         background-color: ${this.colors.menuItemHoverBackground};
       }
 
-      .foyer--menu-item--muted {
+      .welcome--menu-item--muted {
         color: ${this.colors.menuItemMutedText};
       }
 
-      .foyer--menu-divider {
+      .welcome--menu-divider {
         border-top: 1px solid #EBEBEB;
         margin: 5px -5px;
         height: 0;
@@ -181,78 +181,89 @@
     },
 
     _createRootEl: function () {
-      var foyerRoot = document.createElement("div");
-      foyerRoot.id = "foyer--root";
-      return foyerRoot;
+      var welcomeRoot = document.createElement("div");
+      welcomeRoot.id = "welcome--root";
+      return welcomeRoot;
     },
 
     _createBackdropEl: function () {
-      var foyerBackdrop = document.createElement("div");
-      foyerBackdrop.id = "foyer--backdrop";
-      foyerBackdrop.className = "foyer--hidden";
-      return foyerBackdrop;
+      var welcomeBackdrop = document.createElement("div");
+      welcomeBackdrop.id = "welcome--backdrop";
+      welcomeBackdrop.className = "welcome--hidden";
+      return welcomeBackdrop;
     },
 
     _createCTAEl: function () {
-      var foyerButton = document.createElement("button");
-      foyerButton.id = "foyer--cta";
-      foyerButton.innerHTML = `?`;
-      return foyerButton;
+      var welcomeButton = document.createElement("button");
+      welcomeButton.id = "welcome--cta";
+      welcomeButton.innerHTML = `?`;
+      return welcomeButton;
     },
 
     _createMenuEl: function () {
-      var foyerMenu = document.createElement("div");
+      var welcomeMenu = document.createElement("div");
       var items = this.options.items || [];
-      foyerMenu.id = "foyer--menu-container";
-      foyerMenu.className = "foyer--hidden";
+      welcomeMenu.id = "welcome--menu-container";
+      welcomeMenu.className = "welcome--hidden";
 
-      var foyerListContainer = document.createElement("ul");
-      foyerListContainer.className = "foyer--menu-list";
+      var welcomeListContainer = document.createElement("ul");
+      welcomeListContainer.className = "welcome--menu-list";
       items.forEach((item) => {
         var listItem = document.createElement("li");
         if (item.type == "divider") {
-          listItem.className = "foyer--menu-divider";
+          listItem.className = "welcome--menu-divider";
         } else {
           if (!item.label) {
             console.warn("Foyer: Item label is required");
             return;
           }
           var link = document.createElement("a");
-          link.className = "foyer--menu-item";
+          link.className = "welcome--menu-item";
           link.innerText = item.label;
-          link.href = item.href;
+          if (item.href) {
+            link.href = item.href;
+          } else {
+            link.tabIndex = 0;
+          }
 
           if (item.target) {
             link.target = item.target;
           }
 
           if (item.isMuted) {
-            link.classList.add("foyer--menu-item--muted");
+            link.classList.add("welcome--menu-item--muted");
           }
 
           if (item.onClick && typeof item.onClick === "function") {
             link.addEventListener("click", item.onClick);
+
+            // Allow keyboard navigation
+            link.addEventListener("keydown", function (event) {
+              if (event.code === "Space" || event.code === "Enter") {
+                item.onClick(event);
+              }
+            });
           }
 
           listItem.appendChild(link);
         }
-        foyerListContainer.appendChild(listItem);
+        welcomeListContainer.appendChild(listItem);
       });
 
-      foyerMenu.appendChild(foyerListContainer);
-      return foyerMenu;
+      welcomeMenu.appendChild(welcomeListContainer);
+      return welcomeMenu;
     },
 
     _setIsOpenState: function (isOpen) {
       this.isOpen = isOpen;
-      var $foyerBackdrop = document.getElementById("foyer--backdrop");
-      var $foyerMenu = document.getElementById("foyer--menu-container");
+      var $welcomeBackdrop = document.getElementById("welcome--backdrop");
+      var $welcomeMenu = document.getElementById("welcome--menu-container");
       if (isOpen) {
-        $foyerMenu.classList.remove("foyer--hidden");
-        $foyerBackdrop.classList.remove("foyer--hidden");
+        $welcomeMenu.classList.remove("welcome--hidden");
+        $welcomeBackdrop.classList.remove("welcome--hidden");
       } else {
-        $foyerMenu.classList.add("foyer--hidden");
-        $foyerBackdrop.classList.add("foyer--hidden");
+        $welcomeMenu.classList.add("welcome--hidden");
+        $welcomeBackdrop.classList.add("welcome--hidden");
       }
     },
 
@@ -261,14 +272,14 @@
     },
 
     _initEventListeners: function () {
-      var $foyerCTA = document.getElementById("foyer--cta");
-      var $foyerBackdrop = document.getElementById("foyer--backdrop");
+      var $welcomeCTA = document.getElementById("welcome--cta");
+      var $welcomeBackdrop = document.getElementById("welcome--backdrop");
 
-      $foyerBackdrop.addEventListener(
+      $welcomeBackdrop.addEventListener(
         "click",
         this._handleToggleMenu.bind(this)
       );
-      $foyerCTA.addEventListener("click", this._handleToggleMenu.bind(this));
+      $welcomeCTA.addEventListener("click", this._handleToggleMenu.bind(this));
 
       // If escape key is pressed, close the menu
       document.addEventListener("keydown", (evt) => {
@@ -300,18 +311,18 @@
       // Init DOM elements
       this._initColorOptions(options.colors);
       this._createStyles();
-      var $foyerRoot = this._createRootEl();
-      var $foyerButton = this._createCTAEl();
-      var $foyerMenu = this._createMenuEl();
-      var $foyerBackdropEl = this._createBackdropEl();
-      $foyerRoot.appendChild($foyerButton);
-      $foyerRoot.appendChild($foyerMenu);
-      $foyerRoot.appendChild($foyerBackdropEl);
-      document.body.appendChild($foyerRoot);
+      var $welcomeRoot = this._createRootEl();
+      var $welcomeButton = this._createCTAEl();
+      var $welcomeMenu = this._createMenuEl();
+      var $welcomeBackdropEl = this._createBackdropEl();
+      $welcomeRoot.appendChild($welcomeButton);
+      $welcomeRoot.appendChild($welcomeMenu);
+      $welcomeRoot.appendChild($welcomeBackdropEl);
+      document.body.appendChild($welcomeRoot);
 
       this._initEventListeners();
     },
   };
 
-  window.foyer = window.foyer || foyer;
+  window.welcome = window.welcome || welcome;
 })();

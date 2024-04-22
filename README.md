@@ -1,43 +1,43 @@
-![Foyer banner logo](assets/foyer-text-logo.png)
+![Welcome banner logo](assets/welcome-text-logo.png)
 
 <div style="height:100px"></div>
 
-# About Foyer
+# About Welcome.js
 
-Foyer is a widget that lives in the bottom corner of your site, helping users find information and support in an unobtrusive way.
+Welcome is a widget that lives in the bottom corner of your site, helping users find information and support in an unobtrusive way.
 
-Foyer has been designed for [Hiya](https://hiya.io) to improve the logged-in customer experience and has now been opened up for broader use.
+Welcome has been designed for [UseProduct](https://www.useproduct.com) to provide a simple way to add a support menu to any site.
 
 ![Hero](assets/screenshot.png)
 
-## Foyer in action
+## Welcome in action
 
-Here's a demo: **[foyer.hiya.io](https://foyer.hiya.io/)**
+Here's a demo: **[welcome.useproduct.com](https://welcome.useproduct.com/)**
 
-## Add Foyer to your site
+## Add Welcome to your site
 
-To add Foyer to your site:
+To add Welcome to your site:
 
 ```html
-<script src="https://unpkg.com/@hiyaio/foyer/foyer.js"></script>
+<script src="https://unpkg.com/@useproduct/welcome/welcome.js"></script>
 <script>
-  foyer.init({
+  welcome.init({
     items: [
       {
         label: "Help & support",
-        href: "https://github.com/hiyaio/foyer.js/issues",
+        href: "https://github.com/useproduct/welcome.js/issues",
       },
     ],
   });
 </script>
 ```
 
-More examples of how you can configure Foyer can be found in [/demo](/demo).
+More examples of how you can configure Welcome can be found in [/demo](/demo).
 
 ## Configuration
 
 ```javascript
-const foyerInitOptions = {
+const welcomeInitOptions = {
   items: [
     // Standard link option
     {
@@ -49,6 +49,10 @@ const foyerInitOptions = {
       label: "Contact us",
       href: "https://external.example.com/",
       target: "_blank",
+    },
+    // Divider
+    {
+      type: "divider",
     },
     // Subtle, muted styling
     {
@@ -62,10 +66,6 @@ const foyerInitOptions = {
       onClick: function (event) {
         console.log("Custom logic");
       },
-    },
-    // Divider
-    {
-      type: "divider",
     },
   ],
   // Override core colors. CSS can be used but this is simpler
@@ -83,8 +83,8 @@ const foyerInitOptions = {
 You can programmatically control the opening & closing of the menu:
 
 ```javascript
-foyer.open();
-foyer.close();
+welcome.open();
+welcome.close();
 ```
 
 ## Tasks
@@ -99,7 +99,7 @@ foyer.close();
 
 ## Developing locally
 
-Looking to develop Foyer for contributing/forking, great! Just run:
+Looking to develop Welcome for contributing/forking, great! Just run:
 
 ```
 yarn start

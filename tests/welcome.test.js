@@ -1,6 +1,6 @@
 /* global document */
-import { TextEncoder, TextDecoder } from "util";
 import fs from "fs";
+import { TextDecoder, TextEncoder } from "util";
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder;
 
@@ -10,12 +10,12 @@ const jsdom = require("jsdom");
 const virtualConsole = new jsdom.VirtualConsole();
 virtualConsole.sendTo(console);
 
-describe("foyer", () => {
+describe("welcome", () => {
   beforeEach(function () {
     document.body.innerHTML = `<div></div>`;
-    const $foyerScript = document.createElement("script");
-    $foyerScript.innerHTML = fs.readFileSync("./foyer.js", "utf8");
-    document.body.appendChild($foyerScript);
+    const $welcomeScript = document.createElement("script");
+    $welcomeScript.innerHTML = fs.readFileSync("./welcome.js", "utf8");
+    document.body.appendChild($welcomeScript);
   });
 
   function isElementVisible(el) {
@@ -37,30 +37,30 @@ describe("foyer", () => {
 
     const sInit = document.createElement("script");
     sInit.innerHTML = `
-      foyer.init(${JSON.stringify(options)});
+      welcome.init(${JSON.stringify(options)});
     `;
     document.body.appendChild(sInit);
   }
 
   test("Will render CTA", () => {
     injectBaseFoyerInitScript();
-    expect(document.getElementById("foyer--cta").textContent).toBe("?");
+    expect(document.getElementById("welcome--cta").textContent).toBe("?");
   });
 
   test("Menu not shown by default", () => {
     injectBaseFoyerInitScript();
-    const $menu = document.getElementById("foyer--menu-container");
-    expect($menu.classList).toContain("foyer--hidden");
+    const $menu = document.getElementById("welcome--menu-container");
+    expect($menu.classList).toContain("welcome--hidden");
     expect(isElementVisible($menu)).toBeFalsy();
   });
 
   test("Menu shown when CTA clicked", () => {
     injectBaseFoyerInitScript();
 
-    document.getElementById("foyer--cta").click();
+    document.getElementById("welcome--cta").click();
 
-    const $menu = document.getElementById("foyer--menu-container");
-    expect($menu.classList).not.toContain("foyer--hidden");
+    const $menu = document.getElementById("welcome--menu-container");
+    expect($menu.classList).not.toContain("welcome--hidden");
     expect(isElementVisible($menu)).toBeTruthy();
   });
 
@@ -74,9 +74,9 @@ describe("foyer", () => {
       ],
     });
 
-    document.getElementById("foyer--cta").click();
+    document.getElementById("welcome--cta").click();
 
-    const $menuItems = document.getElementsByClassName("foyer--menu-item");
+    const $menuItems = document.getElementsByClassName("welcome--menu-item");
     const menuItemsArray = Array.from($menuItems).map((el) => ({
       label: el.innerText,
       href: el.href,
@@ -95,7 +95,7 @@ describe("foyer", () => {
       ],
     });
 
-    document.getElementById("foyer--cta").click();
+    document.getElementById("welcome--cta").click();
 
     const $menuItems = document.getElementsByTagName("li");
     const menuItemsArray = Array.from($menuItems).map((el) => ({
@@ -103,7 +103,7 @@ describe("foyer", () => {
       innerText: el.innerText,
     }));
     expect(menuItemsArray).toEqual([
-      { className: "foyer--menu-divider", innerText: undefined },
+      { className: "welcome--menu-divider", innerText: undefined },
     ]);
   });
 });
