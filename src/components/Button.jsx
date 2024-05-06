@@ -4,11 +4,11 @@ export default function Button({ onClick, isOpen }) {
   return (
     <button onClick={onClick}>
       {isOpen ? (
-        <img src={require("../../assets/close.svg")} alt="Info" />
+        <img src={require("../../assets/x.svg")} alt="Info" />
       ) : (
-        <img src={require("../../assets/question-symbol.svg")} alt="Info" />
+        <img src={require("../../assets/i.svg")} alt="Info" />
       )}
-      <style jsx="true">{`
+      <style jsx>{`
         button {
           background: transparent;
           border: none;
@@ -16,17 +16,18 @@ export default function Button({ onClick, isOpen }) {
           padding: 0;
           margin: 0;
           align-items: center;
-          width: 35px;
-          height: 35px;
+          width: 45px;
+          height: 45px;
           display: block;
+          background: transparent;
+          padding: 5px;
+          display: block;
+          border-radius: 5px;
+          transition: background 180ms ease-in-out;
         }
 
-        button img {
-          transform: ${isOpen ? "scale(0.8)" : "scale(1)"};
-        }
-
-        button:hover img {
-          transform: scale(0.8);
+        button:hover {
+          background: #00000014;
         }
 
         img {
